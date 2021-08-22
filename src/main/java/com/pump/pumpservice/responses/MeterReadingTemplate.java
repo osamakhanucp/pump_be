@@ -3,15 +3,17 @@ package com.pump.pumpservice.responses;
 import com.pump.pumpservice.dailysalenozzles.DailySaleNozzle;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class DailySaleTemplate {
+public class MeterReadingTemplate {
 
     private Long id;
     private boolean canEdit = true;
+    private Date entryDate;
     private List<DailySaleNozzle> dailySaleNozzles = new ArrayList<>();
 
-    public DailySaleTemplate() {//empty
+    public MeterReadingTemplate() {//empty
     }
 
     public List<DailySaleNozzle> getDailySaleNozzles() {
@@ -36,5 +38,13 @@ public class DailySaleTemplate {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
     }
 }

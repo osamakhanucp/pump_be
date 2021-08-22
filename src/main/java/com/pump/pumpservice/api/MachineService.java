@@ -8,12 +8,10 @@ import com.pump.pumpservice.dailysales.DailySaleRepository;
 import com.pump.pumpservice.nozzles.Nozzle;
 import com.pump.pumpservice.nozzles.NozzleRepository;
 import com.pump.pumpservice.requestmappers.DateMapper;
-import com.pump.pumpservice.requestmappers.MachineMapper;
-import com.pump.pumpservice.responses.DailySaleTemplate;
+import com.pump.pumpservice.responses.MeterReadingTemplate;
 import com.pump.pumpservice.responses.DefaultResponse;
 import com.pump.pumpservice.stockrate.StockRate;
 import com.pump.pumpservice.stockrate.StockRateRepository;
-import net.bytebuddy.asm.Advice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,48 +50,18 @@ public class MachineService {
         return nozzleRepository.findAll();
     }
 
-    DailySaleTemplate getDailySaleTemplate(DateMapper dateMapper) throws ParseException {
+    MeterReadingTemplate getDailySaleTemplate(DateMapper dateMapper) throws ParseException {
 
-//        if(date != null && !date.contentEquals("")) {
-//            return getDailySaleByDate(dateParam);
-//        }
         Date currentDate = dateMapper.getDate();
-//        DateFormat format = new SimpleDateFormat("dd-mm-yyyy");
-//        format.setTimeZone(TimeZone.getTimeZone("UTC"));
-
-//        //todo : for now
-//        Date dateTemp = new SimpleDateFormat("dd-mm-yyyy").parse(dateParam);
-//
-//        Date date = new SimpleDateFormat("dd-mm-yyyy").parse(dateParam);
-
-//        date.setHours(05);
-//        date.setMinutes(0);
-//        date.setSeconds(0);
-//
-//        System.out.println("Get By Date" + date);
-//
-//        Date newDate = new Date();
-//        newDate.setDate(date.getDate());
-//        newDate.setMinutes(0);
-//        newDate.setHours(0);
-//        newDate.setSeconds(0);
-
         //initializing
-        DailySaleTemplate dailySaleTemplate = new DailySaleTemplate();
-
-//        //pre operation functionality
-//        Date currentDate = new Date();
-//        System.out.println(currentDate);
-//        currentDate.setHours(0);
-//        currentDate.setSeconds(0);
-//        currentDate.setMinutes(0);
+        MeterReadingTemplate meterReadingTemplate = new MeterReadingTemplate();
 
         DailySale dailySale = dailySaleRepository.findByEntryDateAfterOrEntryDate(currentDate, currentDate);
         if(dailySale != null){
             List<DailySaleNozzle> dailySaleNozzles = dailySaleNozzleRepository.findAllByDailySaleId(dailySale.getId());
-            dailySaleTemplate.getDailySaleNozzles().addAll(dailySaleNozzles);
-            dailySaleTemplate.setCanEdit(false);
-            return dailySaleTemplate;
+            meterReadingTemplate.getDailySaleNozzles().addAll(dailySaleNozzles);
+            meterReadingTemplate.setCanEdit(false);
+            return meterReadingTemplate;
         }
 
         Calendar calendar = Calendar.getInstance();
@@ -109,7 +77,7 @@ public class MachineService {
             dailySaleNozzlesPreviousDay = dailySaleNozzleRepository.findAllByDailySaleId(dailySaleForPreviousDay.getId());
         }
 
-//        List<StockRate> stockRates = stockRateRepository.findByEntryDate();
+
         //Setting daily nozzle entry from current active nozzles
         List<Nozzle> nozzles = nozzleRepository.findAll();
         for(int index = 0 ; index < nozzles.size() ; index++) {
@@ -120,11 +88,11 @@ public class MachineService {
             StockRate stockRate = stockRateRepository.findStockByActiveDate(nozzles.get(index).getStockTypeId(), dateMapper.getDate());
             if(stockRate != null) {
                 dailySaleNozzle.setRate(stockRate.getsRate());
-                dailySaleTemplate.getDailySaleNozzles().add(dailySaleNozzle);
+                meterReadingTemplate.getDailySaleNozzles().add(dailySaleNozzle);
             }
         }
 
-        return dailySaleTemplate;
+        return meterReadingTemplate;
     }
 
     private double  getNozzleOpening(Nozzle nozzle, List<DailySaleNozzle> dailySaleNozzlesPreviousDay) {
@@ -136,10 +104,10 @@ public class MachineService {
         return nozzle.getOpening();
     }
 
-    DefaultResponse addDailySale(@RequestBody DailySaleTemplate dailySaleTemplate)
+    DefaultResponse addDailySale(@RequestBody MeterReadingTemplate meterReadingTemplate)
     {
         DailySale dailySale = new DailySale();
-        dailySale.setId(dailySaleTemplate.getId());
+        dailySale.setId(meterReadingTemplate.getId());
         Date date = new Date();
         date.setMinutes(0);
         date.setHours(0);
@@ -147,8 +115,8 @@ public class MachineService {
         dailySale.setEntryDate(date);
         dailySaleRepository.save(dailySale);
 
-        for(int index = 0 ; index < dailySaleTemplate.getDailySaleNozzles().size() ; index++ ) {
-            DailySaleNozzle dailySaleNozzle = dailySaleTemplate.getDailySaleNozzles().get(index);
+        for(int index = 0; index < meterReadingTemplate.getDailySaleNozzles().size() ; index++ ) {
+            DailySaleNozzle dailySaleNozzle = meterReadingTemplate.getDailySaleNozzles().get(index);
             dailySaleNozzle.setDailySaleId(dailySale.getId());
             dailySaleNozzleRepository.save(dailySaleNozzle);
         }
@@ -157,7 +125,7 @@ public class MachineService {
 
     }
 
-    DailySaleTemplate getDailySaleByDate(String dateParam) throws ParseException {
+    MeterReadingTemplate getDailySaleByDate(String dateParam) throws ParseException {
 
         DateFormat format = new SimpleDateFormat("dd-mm-yyyy");
         format.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -167,7 +135,7 @@ public class MachineService {
         date.setMinutes(0);
         date.setSeconds(0);
 
-        DailySaleTemplate dailySaleTemplate = new DailySaleTemplate();
+        MeterReadingTemplate meterReadingTemplate = new MeterReadingTemplate();
         System.out.println("Get By Date" + date);
 
         Date newDate = new Date();
@@ -179,12 +147,12 @@ public class MachineService {
         DailySale dailySale = dailySaleRepository.findByEntryDate(newDate);
         if(dailySale != null){
             List<DailySaleNozzle> dailySaleNozzles = dailySaleNozzleRepository.findAllByDailySaleId(dailySale.getId());
-            dailySaleTemplate.getDailySaleNozzles().addAll(dailySaleNozzles);
-            dailySaleTemplate.setCanEdit(false);
-            return dailySaleTemplate;
+            meterReadingTemplate.getDailySaleNozzles().addAll(dailySaleNozzles);
+            meterReadingTemplate.setCanEdit(false);
+            return meterReadingTemplate;
         }
 
-        return dailySaleTemplate;
+        return meterReadingTemplate;
     }
 
 }
