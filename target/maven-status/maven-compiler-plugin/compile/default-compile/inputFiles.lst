@@ -1,53 +1,57 @@
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/stocktype/StockTypeRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/customervehicle/CustomerVehicle.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/bankledgercreditdebit/BankLedgerCreditDebit.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/customerledger/CustomerLedgerRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/bankledger/BankLedgerRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/stockrate/StockRateRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/BankLedgerService.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/customerledger/CustomerLedger.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/nozzles/NozzleRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/security/SecurityConfigurer.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/expensetype/ExpenseType.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/dailysalenozzles/DailySaleNozzleRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/sales/SaleRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/requestmappers/DateMapper.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/expensetype/ExpenseTypeRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/MachineService.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/security/AuthController.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/responses/CustomerLedgerResponse.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/CustomerLedgerService.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/security/UserDetailService.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/stockrate/StockRate.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/responses/DailySaleTemplate.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/MachineController.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/PumpServiceApplication.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/responses/BankLedgerDetail.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/models/AuthenticationResponse.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/stocktype/StockType.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/SalesService.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/dailysales/DailySale.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/expense/ExpenseRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/dailysales/DailySaleRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/BankLedgerController.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/models/AuthenticationRequest.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/dailysalenozzles/DailySaleNozzle.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/expense/Expense.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/CustomerLedgerController.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/SalesController.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/util/JwtUtil.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/ExpenseService.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/sales/Sale.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/customervehicle/CustomerVehicleRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/requestmappers/MachineMapper.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/nozzles/Nozzle.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/StockController.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/responses/CustomerLedgerDetail.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/responses/CustomerLedgerCreditDebit.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/bankledger/BankLedger.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/responses/DefaultResponse.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/StockService.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/filters/JwtRequestFilter.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/requestmappers/CustomerLedgerMapper.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/bankledgercreditdebit/BankLedgerCreditDebitRepository.java
-/home/osama/pump/petrol service/petrol-service/src/main/java/com/pump/pumpservice/api/ExpenseController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/MachineService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/DailySailController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/responses/CustomerLedgerResponse.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/responses/BankLedgerDetail.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/security/AuthController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/dailysalenozzles/DailySaleNozzle.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/responses/CustomerLedgerDetail.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/stockrate/StockRate.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/stockrate/StockRateRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/customerledger/CustomerLedgerRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/StockController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/bankledger/BankLedger.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/sales/Sale.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/customervehicle/CustomerVehicleRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/nozzles/NozzleRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/expense/ExpenseRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/bankledger/BankLedgerRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/dailysalenozzles/DailySaleNozzleRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/BankLedgerController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/bankledgercreditdebit/BankLedgerCreditDebitRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/expense/Expense.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/stocktype/StockTypeRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/bankledgercreditdebit/BankLedgerCreditDebit.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/StockService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/expensetype/ExpenseType.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/SalesController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/ExpenseService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/responses/DefaultResponse.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/SalesService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/CustomerLedgerController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/requestmappers/CustomerLedgerMapper.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/requestmappers/DailySailMapper.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/expensetype/ExpenseTypeRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/PumpServiceApplication.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/requestmappers/MachineMapper.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/responses/StockRateHistoryUpcoming.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/requestmappers/DateMapper.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/ExpenseController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/BankLedgerService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/customervehicle/CustomerVehicle.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/MachineController.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/DailySailService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/stocktype/StockType.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/nozzles/Nozzle.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/api/CustomerLedgerService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/customerledger/CustomerLedger.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/filters/JwtRequestFilter.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/models/AuthenticationResponse.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/security/SecurityConfigurer.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/sales/SaleRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/models/AuthenticationRequest.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/util/JwtUtil.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/responses/MeterReadingTemplate.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/security/UserDetailService.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/dailysales/DailySaleRepository.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/dailysales/DailySale.java
+/home/osama/pump_project/be/src/main/java/com/pump/pumpservice/responses/CustomerLedgerCreditDebit.java

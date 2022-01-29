@@ -41,7 +41,6 @@ public class DailySailService {
 
     public MeterReadingTemplate getMeterReadingTemplate(DateMapper dateMapper) throws ParseException {
 
-
         Date currentDate = dateMapper.getDate();
         currentDate.setMinutes(0);
         currentDate.setHours(0);
@@ -51,6 +50,11 @@ public class DailySailService {
         List<DailySaleNozzle> dailySaleNozzles = dailySaleNozzleRepository.findAllByEntryDate(currentDate);
         if(dailySaleNozzles != null && dailySaleNozzles.size() > 0) {
             meterReadingTemplate.setDailySaleNozzles(dailySaleNozzles);
+            if(checkNextDayMeterReading(currentDate)) {
+                meterReadingTemplate.setCanEdit(false);
+            }else {
+                meterReadingTemplate.setCanEdit(true);
+            }
             return meterReadingTemplate;
         }else {
             Date previousDate = getPreviousDate(currentDate);
@@ -67,7 +71,11 @@ public class DailySailService {
                 }
             }
         }
-
+        if(checkNextDayMeterReading(currentDate)) {
+            meterReadingTemplate.setCanEdit(false);
+        }else {
+            meterReadingTemplate.setCanEdit(true);
+        }
         return meterReadingTemplate;
     }
 
@@ -79,6 +87,23 @@ public class DailySailService {
         System.out.println(previousDate);
         return previousDate;
     }
+
+    private boolean checkNextDayMeterReading(Date currentDate) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(currentDate);
+        calendar.add(Calendar.DATE, 1);
+        Date nextDate = calendar.getTime();
+        System.out.println("Next date : " + nextDate);
+        List<DailySaleNozzle> dailySaleNozzles = dailySaleNozzleRepository.findAllByEntryDate(nextDate);
+        if(dailySaleNozzles != null && dailySaleNozzles.size() > 0) {
+            System.out.println("next day present");
+            return true;
+        }else {
+            System.out.println("next not present");
+            return false;
+        }
+    }
+
 
     private double  getNozzleOpening(Nozzle nozzle, List<DailySaleNozzle> dailySaleNozzlesPreviousDay) {
         for(int index = 0 ; index < dailySaleNozzlesPreviousDay.size() ; index++) {

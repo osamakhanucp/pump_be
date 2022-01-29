@@ -5,11 +5,13 @@ com/pump/pumpservice/responses/DefaultResponse.class
 com/pump/pumpservice/api/BankLedgerController.class
 com/pump/pumpservice/api/BankLedgerService.class
 com/pump/pumpservice/customerledger/CustomerLedgerRepository.class
+com/pump/pumpservice/responses/MeterReadingTemplate.class
 com/pump/pumpservice/models/AuthenticationRequest.class
 com/pump/pumpservice/api/ExpenseController.class
 com/pump/pumpservice/stocktype/StockType.class
 com/pump/pumpservice/api/CustomerLedgerController.class
 com/pump/pumpservice/responses/BankLedgerDetail.class
+com/pump/pumpservice/requestmappers/DailySailMapper.class
 com/pump/pumpservice/sales/SaleRepository.class
 com/pump/pumpservice/dailysales/DailySale.class
 com/pump/pumpservice/api/StockService.class
@@ -36,7 +38,9 @@ com/pump/pumpservice/responses/CustomerLedgerCreditDebit.class
 com/pump/pumpservice/util/JwtUtil.class
 com/pump/pumpservice/api/ExpenseService.class
 com/pump/pumpservice/sales/Sale.class
+com/pump/pumpservice/api/DailySailController.class
 com/pump/pumpservice/expensetype/ExpenseTypeRepository.class
+com/pump/pumpservice/responses/StockRateHistoryUpcoming.class
 com/pump/pumpservice/PumpServiceApplication.class
 com/pump/pumpservice/responses/CustomerLedgerResponse.class
 com/pump/pumpservice/stockrate/StockRateRepository.class
@@ -44,7 +48,7 @@ com/pump/pumpservice/api/SalesController.class
 com/pump/pumpservice/dailysales/DailySaleRepository.class
 com/pump/pumpservice/stockrate/StockRate.class
 com/pump/pumpservice/expensetype/ExpenseType.class
-com/pump/pumpservice/responses/DailySaleTemplate.class
+com/pump/pumpservice/api/DailySailService.class
 com/pump/pumpservice/customervehicle/CustomerVehicle.class
 com/pump/pumpservice/api/SalesService.class
 com/pump/pumpservice/dailysalenozzles/DailySaleNozzle.class

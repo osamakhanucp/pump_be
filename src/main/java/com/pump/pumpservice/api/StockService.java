@@ -45,6 +45,7 @@ public class StockService {
         activeDate.setMinutes(0);
         activeDate.setSeconds(0);
         stockRate.setActiveDate(activeDate);
+        stockRate.setId(null);
         stockRateRepository.save(stockRate);
 
         return new DefaultResponse("S001","success");
