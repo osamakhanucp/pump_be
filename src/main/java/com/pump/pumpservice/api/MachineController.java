@@ -26,6 +26,19 @@ public class MachineController {
         return machineService.addNozzle(nozzle);
     }
 
+    @RequestMapping(method = RequestMethod.PUT,value="/nozzles")
+    public @ResponseBody
+    DefaultResponse editNozzles(@RequestBody Nozzle nozzle) {
+        return machineService.editNozzles(nozzle);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE,value="/nozzles")
+    public @ResponseBody
+    DefaultResponse deleteNozzle(@RequestBody Nozzle nozzle) {
+        return machineService.deleteNozzles(nozzle);
+    }
+
+
     @RequestMapping(method = RequestMethod.GET,value="/nozzles")
     public @ResponseBody
     List<Nozzle> getNozzles() {

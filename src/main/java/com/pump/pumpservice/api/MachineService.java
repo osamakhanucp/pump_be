@@ -46,6 +46,35 @@ public class MachineService {
 
     }
 
+    DefaultResponse editNozzles(Nozzle nozzle)
+    {
+        LOGGER.info("Editing nozzel  :" + nozzle.getName());
+        Optional<Nozzle> storedNozzel = nozzleRepository.findById(nozzle.getId());
+        if(storedNozzel.isPresent()) {
+            storedNozzel.get().setName(nozzle.getName());
+        }
+        nozzleRepository.save(nozzle);
+        return new DefaultResponse("201","success");
+
+    }
+
+    DefaultResponse deleteNozzles(Nozzle nozzle)
+    {
+        LOGGER.info("Deleting nozzle  :" + nozzle.getName());
+        Optional<Nozzle> storedNozzel = nozzleRepository.findById(nozzle.getId());
+        if(storedNozzel.isPresent()) {
+            int count = dailySaleNozzleRepository.getDailySaleNozzleCount(storedNozzel.get().getId());
+            if(count <= 0) {
+                nozzleRepository.delete(storedNozzel.get());
+                return new DefaultResponse("200","success");
+            }
+            return new DefaultResponse("400","Can not delete, nozzle is being used in Meter reading");
+        }
+        return new DefaultResponse("500","not found");
+
+
+    }
+
     List<Nozzle> getNozzles() {
         return nozzleRepository.findAll();
     }
