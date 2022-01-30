@@ -53,7 +53,7 @@ public class MachineService {
         if(storedNozzel.isPresent()) {
             storedNozzel.get().setName(nozzle.getName());
         }
-        nozzleRepository.save(nozzle);
+        nozzleRepository.save(storedNozzel.get());
         return new DefaultResponse("201","success");
 
     }

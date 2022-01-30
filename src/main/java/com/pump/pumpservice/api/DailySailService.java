@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DailySailService {
@@ -38,6 +39,22 @@ public class DailySailService {
         }
         return new DefaultResponse();
     }
+
+    public DefaultResponse deleteMeterReading(Long meterReadingId, Date entryDate) {
+        entryDate.setMinutes(0);
+        entryDate.setHours(0);
+        entryDate.setSeconds(0);
+        Optional<DailySaleNozzle> dailySaleNozzle = dailySaleNozzleRepository.findById(meterReadingId);
+        if(dailySaleNozzle.isPresent()) {
+            if(!checkNextDayMeterReading(entryDate)){
+                dailySaleNozzleRepository.deleteById(meterReadingId);
+                return new DefaultResponse("200","success");
+            }
+            return new DefaultResponse("400", "Not allowed, delete reading of next day, first!");
+        }
+        return new DefaultResponse("500", "not found");
+    }
+
 
     public MeterReadingTemplate getMeterReadingTemplate(DateMapper dateMapper) throws ParseException {
 

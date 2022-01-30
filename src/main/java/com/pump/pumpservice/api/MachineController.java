@@ -57,9 +57,9 @@ public class MachineController {
         return dailySailService.setMeterReading(meterReadingTemplate.getDailySaleNozzles(), meterReadingTemplate.getEntryDate());
     }
 
-//    @RequestMapping(method = RequestMethod.DELETE,value="/meterReading/{meterReadingId}")
-//    public @ResponseBody
-//    DefaultResponse deleteDailySale(@PathVariable("meterReadingId") Long meterReadingId, @RequestBody DateMapper dateMapper) {
-//        return dailySailService.d(meterReadingTemplate.getDailySaleNozzles(), meterReadingTemplate.getEntryDate());
-//    }
+    @RequestMapping(method = RequestMethod.DELETE,value="/meterReading/{meterReadingId}")
+    public @ResponseBody
+    DefaultResponse deleteDailySale(@PathVariable("meterReadingId") Long meterReadingId, @RequestBody DateMapper dateMapper) {
+        return dailySailService.deleteMeterReading(meterReadingId, dateMapper.getDate());
+    }
 }
