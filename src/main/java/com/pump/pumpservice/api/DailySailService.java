@@ -32,7 +32,7 @@ public class DailySailService {
         entryDate.setHours(0);
         entryDate.setSeconds(0);
         for(int index = 0 ; index < dailySaleNozzleList.size(); index++) {
-            DailySaleNozzle dailySaleNozzle = dailySaleNozzleList.get(index);
+            DailySaleNozzle dailySaleNozzle = new DailySaleNozzle(dailySaleNozzleList.get(index));
             dailySaleNozzle.setEntryDate(entryDate);
             dailySaleNozzleRepository.save(dailySaleNozzle);
         }

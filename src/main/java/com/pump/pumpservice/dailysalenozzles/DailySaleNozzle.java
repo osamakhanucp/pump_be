@@ -27,6 +27,18 @@ public class DailySaleNozzle {
     public DailySaleNozzle() {
     }
 
+    public DailySaleNozzle(DailySaleNozzle dailySaleNozzle) {
+        this.id = dailySaleNozzle.getId();
+        this.name = dailySaleNozzle.getName();
+        this.fuelType = dailySaleNozzle.getFuelType();
+        this.rate = dailySaleNozzle.getRate();
+        this.opening = dailySaleNozzle.getOpening();
+        this.closing = dailySaleNozzle.getClosing();
+        this.dailySaleId = dailySaleNozzle.getDailySaleId();
+        this.nozzleId = dailySaleNozzle.getNozzleId();
+        this.entryDate = dailySaleNozzle.getEntryDate();
+    }
+
     public DailySaleNozzle(Nozzle nozzle, double rate, double opening) {
 
         this.name = nozzle.getName();

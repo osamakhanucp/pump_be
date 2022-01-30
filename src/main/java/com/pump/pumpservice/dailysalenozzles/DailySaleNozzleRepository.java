@@ -12,6 +12,6 @@ public interface DailySaleNozzleRepository extends JpaRepository<DailySaleNozzle
     List<DailySaleNozzle> findAllByDailySaleId(Long dailySaleId);
     List<DailySaleNozzle> findAllByEntryDate(Date date);
 
-    @Query(value ="Select count(*) from t_daily_sale_nozzle as ds where ds.nozzleId = :nozzleId ", nativeQuery = true)
+    @Query(value ="Select count(*) from t_daily_sale_nozzle as ds where ds.nozzle_id = :nozzleId ", nativeQuery = true)
     public int getDailySaleNozzleCount(@Param("nozzleId") Long nozzleId);
 }
