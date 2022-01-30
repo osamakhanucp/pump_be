@@ -52,9 +52,11 @@ public class MachineService {
         Optional<Nozzle> storedNozzel = nozzleRepository.findById(nozzle.getId());
         if(storedNozzel.isPresent()) {
             storedNozzel.get().setName(nozzle.getName());
+            nozzleRepository.save(storedNozzel.get());
+            return new DefaultResponse("201","success");
         }
-        nozzleRepository.save(storedNozzel.get());
-        return new DefaultResponse("201","success");
+
+        return new DefaultResponse("400","Bad Request");
 
     }
 
