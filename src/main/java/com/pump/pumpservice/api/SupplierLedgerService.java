@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SupplierLedgerService {
@@ -27,6 +28,14 @@ public class SupplierLedgerService {
         LOGGER.info("Adding Supplier Name : " + supplierLedger.getSupplierName());
         supplierLedgerRepository.save(supplierLedger);
         return  new DefaultResponse("201","success");
+    }
+
+    public List<SupplierLedger> getSupplierLedgers() {
+       return supplierLedgerRepository.findAll();
+    }
+
+    public Optional<SupplierLedger> getSupplierLedgerById(Long id) {
+        return supplierLedgerRepository.findById(id);
     }
 
     public DefaultResponse editSupplierLedger(SupplierLedger supplierLedger) {

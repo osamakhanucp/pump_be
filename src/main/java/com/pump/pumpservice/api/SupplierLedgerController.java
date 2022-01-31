@@ -7,14 +7,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/supplierLedger")
+@RequestMapping(path = "/supplierLedgers")
 @CrossOrigin
 public class SupplierLedgerController {
 
     @Autowired
     private SupplierLedgerService supplierLedgerService;
+
+
+    @RequestMapping(method = RequestMethod.GET,value="")
+    public @ResponseBody
+    List<SupplierLedger> getSupplierLedger() {
+        return supplierLedgerService.getSupplierLedgers();
+    }
+
+    @RequestMapping(method = RequestMethod.GET,value="/{id}")
+    public @ResponseBody
+    Optional<SupplierLedger> getSupplierLedgerId(@PathVariable("id") Long id) {
+
+        return supplierLedgerService.getSupplierLedgerById(id);
+    }
 
     @RequestMapping(method = RequestMethod.POST,value="")
     public @ResponseBody
