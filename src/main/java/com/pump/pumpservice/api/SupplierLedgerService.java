@@ -66,5 +66,8 @@ public class SupplierLedgerService {
         return new DefaultResponse("200","success");
     }
 
+    public List<SupplierLedgerItem> getSupplierLedgerItemsBySupplierLedgerId(Long supplierLedgerId) {
+        return supplierLedgerItemRepository.findAllBySupplierLedgerId(supplierLedgerId);
+    }
 
 }

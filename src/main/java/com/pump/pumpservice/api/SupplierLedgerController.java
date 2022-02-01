@@ -57,9 +57,16 @@ public class SupplierLedgerController {
         return supplierLedgerService.addSupplierLedgerItems(supplierLedgerId, supplierLedgerItems);
     }
 
-    @RequestMapping(method = RequestMethod.POST,value="/{supplierLedgerId}/ledgerItems/{ledgerItemId}")
+    @RequestMapping(method = RequestMethod.DELETE,value="/{supplierLedgerId}/ledgerItems/{ledgerItemId}")
     public @ResponseBody
     DefaultResponse deleteSupplierLedgerItem(@PathVariable("supplierLedgerId") Long supplierLedgerId, @PathVariable("ledgerItemId") Long ledgerItemId) {
         return supplierLedgerService.deleteSupplierLedgerItem(ledgerItemId);
+    }
+
+    @RequestMapping(method = RequestMethod.GET,value="/{supplierLedgerId}/ledgerItems")
+    public @ResponseBody
+    List<SupplierLedgerItem> getSupplierLedgerItems(@PathVariable("supplierLedgerId") Long supplierLedgerId) {
+
+        return supplierLedgerService.getSupplierLedgerItemsBySupplierLedgerId(supplierLedgerId);
     }
 }
