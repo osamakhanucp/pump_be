@@ -140,9 +140,9 @@ public class MachineService {
         DailySale dailySale = new DailySale();
         dailySale.setId(meterReadingTemplate.getId());
         Date date = new Date();
-        date.setMinutes(0);
-        date.setHours(0);
-        date.setSeconds(0);
+//        date.setMinutes(0);
+//        date.setHours(0);
+//        date.setSeconds(0);
         dailySale.setEntryDate(date);
         dailySaleRepository.save(dailySale);
 
@@ -162,18 +162,18 @@ public class MachineService {
         format.setTimeZone(TimeZone.getTimeZone("UTC"));
         Date date = new SimpleDateFormat("dd-mm-yyyy").parse(dateParam);
 
-        date.setHours(05);
-        date.setMinutes(0);
-        date.setSeconds(0);
+//        date.setHours(05);
+//        date.setMinutes(0);
+//        date.setSeconds(0);
 
         MeterReadingTemplate meterReadingTemplate = new MeterReadingTemplate();
         System.out.println("Get By Date" + date);
 
         Date newDate = new Date();
-        newDate.setDate(date.getDate());
-        newDate.setMinutes(0);
-        newDate.setHours(0);
-        newDate.setSeconds(0);
+//        newDate.setDate(date.getDate());
+//        newDate.setMinutes(0);
+//        newDate.setHours(0);
+//        newDate.setSeconds(0);
 
         DailySale dailySale = dailySaleRepository.findByEntryDate(newDate);
         if(dailySale != null){

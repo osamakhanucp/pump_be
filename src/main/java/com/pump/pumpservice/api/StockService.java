@@ -39,11 +39,12 @@ public class StockService {
 
     public DefaultResponse addStockRate(StockRate stockRate) {
 
-        LOGGER.info("Adding Stock Rate");
+        LOGGER.info("Adding Stock Rate : active date" + stockRate.getActiveDate());
+        LOGGER.info("Entry Date : " + stockRate.getEntryDate());
         Date activeDate = stockRate.getActiveDate();
-        activeDate.setHours(0);
-        activeDate.setMinutes(0);
-        activeDate.setSeconds(0);
+//        activeDate.setHours(0);
+//        activeDate.setMinutes(0);
+//        activeDate.setSeconds(0);
         stockRate.setActiveDate(activeDate);
         stockRate.setId(null);
         stockRateRepository.save(stockRate);

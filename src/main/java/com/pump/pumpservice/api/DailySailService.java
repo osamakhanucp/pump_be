@@ -29,9 +29,9 @@ public class DailySailService {
     private StockRateRepository stockRateRepository;
 
     public DefaultResponse setMeterReading(List<DailySaleNozzle> dailySaleNozzleList, Date entryDate) {
-        entryDate.setMinutes(0);
-        entryDate.setHours(0);
-        entryDate.setSeconds(0);
+//        entryDate.setMinutes(0);
+//        entryDate.setHours(0);
+//        entryDate.setSeconds(0);
         for(int index = 0 ; index < dailySaleNozzleList.size(); index++) {
             DailySaleNozzle dailySaleNozzle = new DailySaleNozzle(dailySaleNozzleList.get(index));
             dailySaleNozzle.setEntryDate(entryDate);
@@ -41,9 +41,9 @@ public class DailySailService {
     }
 
     public DefaultResponse deleteMeterReading(Long meterReadingId, Date entryDate) {
-        entryDate.setMinutes(0);
-        entryDate.setHours(0);
-        entryDate.setSeconds(0);
+//        entryDate.setMinutes(0);
+//        entryDate.setHours(0);
+//        entryDate.setSeconds(0);
         Optional<DailySaleNozzle> dailySaleNozzle = dailySaleNozzleRepository.findById(meterReadingId);
         if(dailySaleNozzle.isPresent()) {
             if(!checkNextDayMeterReading(entryDate)){
@@ -59,9 +59,9 @@ public class DailySailService {
     public MeterReadingTemplate getMeterReadingTemplate(DateMapper dateMapper) throws ParseException {
 
         Date currentDate = dateMapper.getDate();
-        currentDate.setMinutes(0);
-        currentDate.setHours(0);
-        currentDate.setSeconds(0);
+//        currentDate.setMinutes(0);
+//        currentDate.setHours(0);
+//        currentDate.setSeconds(0);
         //initializing
         MeterReadingTemplate meterReadingTemplate = new MeterReadingTemplate();
         List<DailySaleNozzle> dailySaleNozzles = dailySaleNozzleRepository.findAllByEntryDate(currentDate);
